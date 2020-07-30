@@ -1,10 +1,10 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
-inherit cmake-utils gnome2-utils python-any-r1 xdg-utils toolchain-funcs
+inherit cmake-utils gnome2-utils xdg-utils toolchain-funcs
 
 MY_P=${PN}-release-${PV}-src
 
@@ -17,7 +17,7 @@ SRC_URI="https://www.openclonk.org/builds/release/${PV}/openclonk-${PV}-src.tar.
 LICENSE="BSD ISC CLONK-trademark LGPL-2.1 POSTGRESQL"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="client server editor doc"
+IUSE="client server editor"
 REQUIRED_USE="
 	|| ( client server )
 	editor? ( client )
@@ -54,28 +54,11 @@ RDEPEND="
 	server? ( sys-libs/readline:0= )"
 DEPEND="${RDEPEND}
 	|| ( >=sys-devel/gcc-4.9 >=sys-devel/clang-3.3 )
-	virtual/pkgconfig
-	doc? (
-		${PYTHON_DEPS}
-		dev-libs/libxml2[python]
-		sys-devel/gettext
-	)"
+	virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/openclonk-8.0-paths.patch
 )
-
-pkg_pretend() {
-	tc-is-gcc && if [[ $(gcc-version) < 4.9 ]] ; then
-		die 'The active compiler needs to be gcc 4.9 (or newer) or clang'
-	else
-		einfo 'The active compiler should be ok'
-	fi
-}
-
-pkg_setup() {
-	use doc && python-any-r1_pkg_setup
-}
 
 S=${WORKDIR}/${MY_P}
 src_unpack() {
@@ -105,7 +88,6 @@ src_configure() {
 
 src_compile() {
 	cmake-utils_src_compile c4group c4script $(usex client openclonk '') $(usex server openclonk-server '')
-	use doc && emake -C docs
 }
 
 src_install() {
@@ -118,7 +100,6 @@ src_install() {
 	if use server; then
 		dobin "${BUILD_DIR}/openclonk-server"
 	fi
-	use doc && dohtml -r docs/online/*
 }
 
 pkg_preinst() {
