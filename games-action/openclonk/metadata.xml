@@ -14,7 +14,6 @@
 		<flag name="client">Build main game</flag>
 		<flag name="editor">Build scenario editor (based on <pkg>dev-qt/qtgui</pkg>)</flag>
 		<flag name="server">Build dedicated server</flag>
-		<flag name="doc">Build C4Script/API documentation</flag>
 	</use>
 	<longdescription lang="en">
 		OpenClonk is the Open source successor of the Clonk gaming series.
