@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-alternatives/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend test unpack
 DEPEND=dev-libs/tinyxml net-libs/libupnp:* media-libs/libpng:0= virtual/jpeg:0= sys-libs/zlib client? ( dev-libs/glib:2 media-libs/freealut media-libs/freetype:2 media-libs/glew:* media-libs/libsdl2[X,opengl,sound,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-mixer[mp3,vorbis,wav] virtual/opengl virtual/glu x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libXrandr x11-libs/libX11 ) editor? ( dev-qt/qtcore:* dev-qt/qtgui:* dev-qt/qtwidgets ) server? ( sys-libs/readline:0= ) || ( >=sys-devel/gcc-4.9 >=sys-devel/clang-3.3 ) virtual/pkgconfig
 DESCRIPTION=A free multiplayer action game where you control clonks
@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=dev-libs/tinyxml net-libs/libupnp:* media-libs/libpng:0= virtual/jpeg:0= sys-libs/zlib client? ( dev-libs/glib:2 media-libs/freealut media-libs/freetype:2 media-libs/glew:* media-libs/libsdl2[X,opengl,sound,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-mixer[mp3,vorbis,wav] virtual/opengl virtual/glu x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libXrandr x11-libs/libX11 ) editor? ( dev-qt/qtcore:* dev-qt/qtgui:* dev-qt/qtwidgets ) server? ( sys-libs/readline:0= )
 REQUIRED_USE=|| ( client server ) editor? ( client )
 SLOT=0
-_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	39e7a84b06eff4efd9f2e0c3d1668b98	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	git-r3	5133e393e8717a3a093660f990801dc1
+_eclasses_=toolchain-funcs	eed10cf5e5a06916e654d31f5a1925cc	multilib	c19072c3cd7ac5cb21de013f7e9832e0	flag-o-matic	c816c598969cbaf38cc02d2496ad2e98	multiprocessing	30ead54fa2e2b5f9cd4e612ffc34d0fe	ninja-utils	c8951c1dfcc1d43e3f967f61fd0ec59c	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	0f2e0c197fad0312f3c4765c9cf36271	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	git-r3	5133e393e8717a3a093660f990801dc1
 _md5_=13b43d6af04af54e64f8d7f409c7c27c
